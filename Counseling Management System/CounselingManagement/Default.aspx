@@ -15,52 +15,47 @@
         .auto-style3 {
             font-size: 18pt;
         }
+        .center-text {
+            text-align: center;
+        }
+        .auto-margin {
+            margin: 0 50px 0 125px;
+        }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div style="font-size: 22px">
-            <span class="auto-style1"><span class="auto-style3"><strong>UTM Counseling Management System - ADD USER</strong></span><strong style="font-size: 16px"><br />
-            <br />
-            </strong></span><span class="auto-style2">First name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
-            <asp:TextBox ID="txtAddfname" runat="server"></asp:TextBox>
-&nbsp;&nbsp; <span class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Last name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtAddlname" runat="server"></asp:TextBox>
-            <br />
-            <br />
-            Occupation&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtAddoccupation" runat="server"></asp:TextBox>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Role&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtAddrole" runat="server"></asp:TextBox>
-            <br />
-            <br />
-            Phone&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtAddphone" runat="server"></asp:TextBox>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtAddemail" runat="server" TextMode="Email"></asp:TextBox>
-            <br />
-            <br />
-            Faculty&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtAddfaculty" runat="server"></asp:TextBox>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Age&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtAddage" runat="server" TextMode="Number"></asp:TextBox>
-            <br />
-            <br />
-            <br />
-            Address&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtAddaddress" runat="server"></asp:TextBox>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; User ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtAdduserId" runat="server"></asp:TextBox>
-            <br />
-            <br />
-            <br />
-            <asp:Button ID="btnAdduser" runat="server" OnClick="btnAdduser_Click" Text="Add User" Width="120px" />
-            <br />
-            <br />
+        <p class=" center-text auto-style3"><strong>UTM Counseling Management System</strong></p>
+        <div style="border: 2px solid darkblue; font-size: 22px; padding: 0.5rem; margin: auto; width: 500px;">
+            <p class="auto-style1 auto-style2"><strong>Add New User</strong></p>
+            <span class="auto-style2">
+            <asp:Table ID="Table1" runat="server" Width="100%" CellPadding="5" CellSpacing="10" HorizontalAlign="Center">
+                <asp:TableRow>
+                    <asp:TableCell>First name&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtAddfname" runat="server"></asp:TextBox></asp:TableCell>
+                    <asp:TableCell>Last Name&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtAddlname" runat="server"></asp:TextBox></asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>Occupation&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtAddoccupation" runat="server"></asp:TextBox></asp:TableCell>
+                    <asp:TableCell>Role&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtAddrole" runat="server"></asp:TextBox></asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>Phone No.&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtAddphone" runat="server"></asp:TextBox></asp:TableCell>
+                    <asp:TableCell>Email&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtAddemail" runat="server" TextMode="Email"></asp:TextBox></asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>Faculty&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtAddfaculty" runat="server"></asp:TextBox></asp:TableCell>
+                    <asp:TableCell>Age&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtAddage" runat="server" TextMode="Number"></asp:TextBox></asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>Address&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtAddaddress" runat="server" TextMode="MultiLine"></asp:TextBox></asp:TableCell>
+                    <asp:TableCell>User ID&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtAdduserId" runat="server" TextMode="Number"></asp:TextBox></asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>
+            <asp:Button ID="btnAdduser" runat="server" OnClick="btnAdduser_Click" Text="Add User" Width="50%" CssClass="auto-margin" />
             </span>
         </div>
-
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="userId" DataSourceID="SqlDataSource1" AllowSorting="True">
+        <p class="center-text auto-style1 "><strong>Edit or Delete User</strong></p>
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="userId" DataSourceID="SqlDataSource1" AllowSorting="True" HorizontalAlign="Center">
             <Columns>
                 <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />
                 <asp:BoundField DataField="userId" HeaderText="ID" ReadOnly="True" SortExpression="userId" />
