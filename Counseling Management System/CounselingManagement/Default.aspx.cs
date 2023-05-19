@@ -18,6 +18,8 @@ namespace CounselingManagement
         {
             User u = new User();
             u.addUser(txtAddfname.Text, txtAddlname.Text, txtAddoccupation.Text, txtAddrole.Text, txtAddphone.Text, txtAddemail.Text, txtAddaddress.Text, txtAddfaculty.Text, int.Parse(txtAddage.Text), int.Parse(txtAdduserId.Text));
+
+            successTxt.Text = txtAddfname.Text + " from " + txtAddfaculty.Text + " added to the database.";
         }
     }
 }

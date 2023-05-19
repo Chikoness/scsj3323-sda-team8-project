@@ -75,13 +75,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="User.cs" />
-    <Content Include="App_Code\BLL\User.cs" />
-    <Content Include="App_Code\DAL\DataSet.Designer.cs">
+    <Compile Include="App_Code\BLL\User.cs" />
+    <Compile Include="App_Code\DAL\DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet.xsd</DependentUpon>
-    </Content>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using CounselingManagement.App_Code.DAL.DataSetTableAdapters;
 
-namespace CounselingManagement.App_Code.BLL
+namespace CounselingManagement
 {
     public class User
     {
