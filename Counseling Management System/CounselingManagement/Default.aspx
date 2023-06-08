@@ -6,6 +6,11 @@
 <head runat="server">
     <title></title>
     <style type="text/css">
+        .forms-container {
+            display: flex;
+            flex-direction: row;
+        }
+
         .auto-style1 {
             text-decoration: underline;
         }
@@ -26,38 +31,86 @@
 <body>
     <form id="form1" runat="server">
         <p class=" center-text auto-style3"><strong>UTM Counseling Management System</strong></p>
-        <div style="border: 2px solid darkblue; font-size: 22px; padding: 0.5rem; margin: auto; width: 500px;">
-            <p class="auto-style1 auto-style2"><strong>Add New User</strong></p>
-            <span class="auto-style2">
-            <asp:Table ID="Table1" runat="server" Width="100%" CellPadding="5" CellSpacing="10" HorizontalAlign="Center">
-                <asp:TableRow>
-                    <asp:TableCell>First name&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtAddfname" runat="server"></asp:TextBox></asp:TableCell>
-                    <asp:TableCell>Last Name&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtAddlname" runat="server"></asp:TextBox></asp:TableCell>
-                </asp:TableRow>
-                <asp:TableRow>
-                    <asp:TableCell>Occupation&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtAddoccupation" runat="server"></asp:TextBox></asp:TableCell>
-                    <asp:TableCell>Role&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtAddrole" runat="server"></asp:TextBox></asp:TableCell>
-                </asp:TableRow>
-                <asp:TableRow>
-                    <asp:TableCell>Phone No.&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtAddphone" runat="server"></asp:TextBox></asp:TableCell>
-                    <asp:TableCell>Email&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtAddemail" runat="server" TextMode="Email"></asp:TextBox></asp:TableCell>
-                </asp:TableRow>
-                <asp:TableRow>
-                    <asp:TableCell>Faculty&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtAddfaculty" runat="server"></asp:TextBox></asp:TableCell>
-                    <asp:TableCell>Age&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtAddage" runat="server" TextMode="Number"></asp:TextBox></asp:TableCell>
-                </asp:TableRow>
-                <asp:TableRow>
-                    <asp:TableCell>Address&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtAddaddress" runat="server" TextMode="MultiLine"></asp:TextBox></asp:TableCell>
-                    <asp:TableCell>User ID&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtAdduserId" runat="server" TextMode="Number"></asp:TextBox></asp:TableCell>
-                </asp:TableRow>
-            </asp:Table>
-            <asp:Button ID="btnAdduser" runat="server" OnClick="btnAdduser_Click" Text="Add User" Width="50%" CssClass="auto-margin" />
-            </span>
+
+        <div class="forms-container">
+            <div style="border: 2px solid darkblue; font-size: 22px; padding: 0.5rem; margin: auto; width: 45%">
+                <p class="auto-style1 auto-style2"><strong>Add New User</strong></p>
+                <span class="auto-style2">
+                <asp:Table ID="Table1" runat="server" Width="100%" CellPadding="5" CellSpacing="10" HorizontalAlign="Center">
+                    <asp:TableRow>
+                        <asp:TableCell>First name&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtAddfname" runat="server"></asp:TextBox></asp:TableCell>
+                        <asp:TableCell>Last Name&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtAddlname" runat="server"></asp:TextBox></asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell>Occupation&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtAddoccupation" runat="server"></asp:TextBox></asp:TableCell>
+                        <asp:TableCell>Role&nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:DropDownList ID="ddlAddRole" runat="server">
+                                <asp:ListItem Value="staff">Staff</asp:ListItem>
+                                <asp:ListItem Value="student">Student</asp:ListItem>
+                                <asp:ListItem Value="Psychologist">Psychologist</asp:ListItem>
+                            </asp:DropDownList>
+                         </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell>Phone No.&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtAddphone" runat="server"></asp:TextBox></asp:TableCell>
+                        <asp:TableCell>Email&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtAddemail" runat="server" TextMode="Email"></asp:TextBox></asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell>Faculty&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtAddfaculty" runat="server"></asp:TextBox></asp:TableCell>
+                        <asp:TableCell>Age&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtAddage" runat="server" TextMode="Number"></asp:TextBox></asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell>Address&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtAddaddress" runat="server" TextMode="MultiLine"></asp:TextBox></asp:TableCell>
+                        <asp:TableCell>User ID&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtAdduserId" runat="server" TextMode="Number"></asp:TextBox></asp:TableCell>
+                    </asp:TableRow>
+                </asp:Table>                
+                <asp:Button ID="btnAdduser" runat="server" OnClick="btnAdduser_Click" Text="Add User" Width="50%" CssClass="auto-margin" />
+                </span>
+            </div>
+
+             <div style="border: 2px solid darkblue; font-size: 22px; padding: 0.5rem; margin: auto;width: 45%">
+                <p class="auto-style1 auto-style2"><strong>Edit User</strong></p>
+                <span class="auto-style2">
+                    <p class="center-text">
+                        User ID&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:DropDownList ID="DropDownListUserId" runat="server" DataSourceID="SqlDataSource1" DataTextField="userId" DataValueField="userId"> </asp:DropDownList>
+                    </p>
+                <asp:Table ID="Table2" runat="server" Width="100%" CellPadding="5" CellSpacing="10" HorizontalAlign="Center">
+                    <asp:TableRow>
+                        <asp:TableCell>First name&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtEditfname" runat="server"></asp:TextBox></asp:TableCell>
+                        <asp:TableCell>Last Name&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtEditlname" runat="server"></asp:TextBox></asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell>Occupation&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtEditoccupation" runat="server"></asp:TextBox></asp:TableCell>
+                        <asp:TableCell>Role&nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:DropDownList ID="ddlEditRole" runat="server">
+                                <asp:ListItem Value="staff">Staff</asp:ListItem>
+                                <asp:ListItem Value="student">Student</asp:ListItem>
+                                <asp:ListItem Value="Psychologist">Psychologist</asp:ListItem>
+                            </asp:DropDownList></asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell>Phone No.&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtEditphone" runat="server"></asp:TextBox></asp:TableCell>
+                        <asp:TableCell>Email&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtEditemail" runat="server" TextMode="Email"></asp:TextBox></asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell>Faculty&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtEditfaculty" runat="server"></asp:TextBox></asp:TableCell>
+                        <asp:TableCell>Age&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtEditage" runat="server" TextMode="Number"></asp:TextBox></asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell>Address&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtEditaddress" runat="server" TextMode="MultiLine"></asp:TextBox></asp:TableCell>
+                    </asp:TableRow>
+                </asp:Table>
+                    <asp:Button ID="btnGetuser" runat="server" OnClick="btnGetuser_Click" Text="Get A User" Width="50%" CssClass="auto-margin" />
+                    <asp:Button ID="btnEditUser" runat="server" OnClick="btnEdituser_Click" Text="Edit This User" Width="50%" CssClass="auto-margin" />
+                    <asp:Button ID="btnDeleteUser" runat="server" OnClick="btnDeleteuser_Click" Text="Delete This User" Width="50%" CssClass="auto-margin" />
+                </span>
+            </div>
         </div>
-        <p class="center-text auto-style1 "><strong>Edit or Delete User</strong></p>
+
+        <p class="center-text auto-style1 "><strong>User List</strong></p>
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="userId" DataSourceID="SqlDataSource1" AllowSorting="True" HorizontalAlign="Center">
             <Columns>
-                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />
                 <asp:BoundField DataField="userId" HeaderText="ID" ReadOnly="True" SortExpression="userId" />
                 <asp:BoundField DataField="fName" HeaderText="First Name" SortExpression="fName" />
                 <asp:BoundField DataField="lName" HeaderText="Last Name" SortExpression="lName" />

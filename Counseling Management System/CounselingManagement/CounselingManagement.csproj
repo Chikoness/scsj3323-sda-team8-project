@@ -76,6 +76,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\BLL\User.cs" />
+    <Content Include="App_Code\DAL\DataSet.cs">
+      <DependentUpon>DataSet.xsd</DependentUpon>
+    </Content>
     <Compile Include="App_Code\DAL\DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
