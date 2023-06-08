@@ -47,7 +47,7 @@
                             <asp:DropDownList ID="ddlAddRole" runat="server">
                                 <asp:ListItem Value="staff">Staff</asp:ListItem>
                                 <asp:ListItem Value="student">Student</asp:ListItem>
-                                <asp:ListItem Value="Psychologist">Psychologist</asp:ListItem>
+                                <asp:ListItem Value="psychologist">Psychologist</asp:ListItem>
                             </asp:DropDownList>
                          </asp:TableCell>
                     </asp:TableRow>
@@ -86,7 +86,7 @@
                             <asp:DropDownList ID="ddlEditRole" runat="server">
                                 <asp:ListItem Value="staff">Staff</asp:ListItem>
                                 <asp:ListItem Value="student">Student</asp:ListItem>
-                                <asp:ListItem Value="Psychologist">Psychologist</asp:ListItem>
+                                <asp:ListItem Value="psychologist">Psychologist</asp:ListItem>
                             </asp:DropDownList></asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>

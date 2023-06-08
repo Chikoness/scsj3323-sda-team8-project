@@ -1178,7 +1178,7 @@ namespace CounselingManagement.App_Code.DAL.DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual DataSet.UserDataTable getUserData(int userId) {
+        public virtual DataSet.UserDataTable getUser(int userId) {
             this.Adapter.SelectCommand = this.CommandCollection[4];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(userId));
             DataSet.UserDataTable dataTable = new DataSet.UserDataTable();

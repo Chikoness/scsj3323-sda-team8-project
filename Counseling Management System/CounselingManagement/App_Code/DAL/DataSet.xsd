@@ -122,7 +122,7 @@
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="CMUTM_DBConnectionString (Web.config)" DbObjectName="dbo.[User]" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="getUserData" GetMethodModifier="Public" GetMethodName="getUserData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="getUserData" UserSourceName="getUserData">
+              <DbSource ConnectionRef="CMUTM_DBConnectionString (Web.config)" DbObjectName="dbo.[User]" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="getUser" GetMethodModifier="Public" GetMethodName="getUser" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="getUser" UserSourceName="getUser">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT userId, fName, lName, role, occupation, phone, email, address, faculty, age
