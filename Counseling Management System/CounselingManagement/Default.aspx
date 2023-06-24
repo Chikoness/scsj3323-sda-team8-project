@@ -73,7 +73,9 @@
                 <span class="auto-style2">
                     <p class="center-text">
                         User ID&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:DropDownList ID="DropDownListUserId" runat="server" DataSourceID="SqlDataSource1" DataTextField="userId" DataValueField="userId"> </asp:DropDownList>
+                        <asp:DropDownList ID="DropDownListId" runat="server" DataSourceID="SqlDataSource1" DataTextField="id" DataValueField="id"> </asp:DropDownList>
+                        <br />
+                        <asp:Label ID="lblUserId" runat="server"></asp:Label>
                     </p>
                 <asp:Table ID="Table2" runat="server" Width="100%" CellPadding="5" CellSpacing="10" HorizontalAlign="Center">
                     <asp:TableRow>
@@ -109,9 +111,10 @@
         </div>
 
         <p class="center-text auto-style1 "><strong>User List</strong></p>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="userId" DataSourceID="SqlDataSource1" AllowSorting="True" HorizontalAlign="Center">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataSourceID="SqlDataSource1" AllowSorting="True" HorizontalAlign="Center" DataKeyNames="userId">
             <Columns>
-                <asp:BoundField DataField="userId" HeaderText="ID" ReadOnly="True" SortExpression="userId" />
+                <asp:BoundField DataField="id" HeaderText="Id" SortExpression="id" />
+                <asp:BoundField DataField="userId" HeaderText="UserId" SortExpression="userId" ReadOnly="True" />
                 <asp:BoundField DataField="fName" HeaderText="First Name" SortExpression="fName" />
                 <asp:BoundField DataField="lName" HeaderText="Last Name" SortExpression="lName" />
                 <asp:BoundField DataField="role" HeaderText="Role" SortExpression="role" />
@@ -132,52 +135,7 @@
             <SortedDescendingCellStyle BackColor="#D6DFDF" />
             <SortedDescendingHeaderStyle BackColor="#002876" />
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CMUTM_DBConnectionString %>" SelectCommand="SELECT * FROM [User]" ConflictDetection="CompareAllValues" DeleteCommand="DELETE FROM [User] WHERE [userId] = @original_userId AND [fName] = @original_fName AND [lName] = @original_lName AND [role] = @original_role AND (([occupation] = @original_occupation) OR ([occupation] IS NULL AND @original_occupation IS NULL)) AND [phone] = @original_phone AND (([email] = @original_email) OR ([email] IS NULL AND @original_email IS NULL)) AND (([address] = @original_address) OR ([address] IS NULL AND @original_address IS NULL)) AND (([faculty] = @original_faculty) OR ([faculty] IS NULL AND @original_faculty IS NULL)) AND (([age] = @original_age) OR ([age] IS NULL AND @original_age IS NULL))" InsertCommand="INSERT INTO [User] ([userId], [fName], [lName], [role], [occupation], [phone], [email], [address], [faculty], [age]) VALUES (@userId, @fName, @lName, @role, @occupation, @phone, @email, @address, @faculty, @age)" OldValuesParameterFormatString="original_{0}" UpdateCommand="UPDATE [User] SET [fName] = @fName, [lName] = @lName, [role] = @role, [occupation] = @occupation, [phone] = @phone, [email] = @email, [address] = @address, [faculty] = @faculty, [age] = @age WHERE [userId] = @original_userId AND [fName] = @original_fName AND [lName] = @original_lName AND [role] = @original_role AND (([occupation] = @original_occupation) OR ([occupation] IS NULL AND @original_occupation IS NULL)) AND [phone] = @original_phone AND (([email] = @original_email) OR ([email] IS NULL AND @original_email IS NULL)) AND (([address] = @original_address) OR ([address] IS NULL AND @original_address IS NULL)) AND (([faculty] = @original_faculty) OR ([faculty] IS NULL AND @original_faculty IS NULL)) AND (([age] = @original_age) OR ([age] IS NULL AND @original_age IS NULL))">
-            <DeleteParameters>
-                <asp:Parameter Name="original_userId" Type="Int32" />
-                <asp:Parameter Name="original_fName" Type="String" />
-                <asp:Parameter Name="original_lName" Type="String" />
-                <asp:Parameter Name="original_role" Type="String" />
-                <asp:Parameter Name="original_occupation" Type="String" />
-                <asp:Parameter Name="original_phone" Type="String" />
-                <asp:Parameter Name="original_email" Type="String" />
-                <asp:Parameter Name="original_address" Type="String" />
-                <asp:Parameter Name="original_faculty" Type="String" />
-                <asp:Parameter Name="original_age" Type="Int32" />
-            </DeleteParameters>
-            <InsertParameters>
-                <asp:Parameter Name="userId" Type="Int32" />
-                <asp:Parameter Name="fName" Type="String" />
-                <asp:Parameter Name="lName" Type="String" />
-                <asp:Parameter Name="role" Type="String" />
-                <asp:Parameter Name="occupation" Type="String" />
-                <asp:Parameter Name="phone" Type="String" />
-                <asp:Parameter Name="email" Type="String" />
-                <asp:Parameter Name="address" Type="String" />
-                <asp:Parameter Name="faculty" Type="String" />
-                <asp:Parameter Name="age" Type="Int32" />
-            </InsertParameters>
-            <UpdateParameters>
-                <asp:Parameter Name="fName" Type="String" />
-                <asp:Parameter Name="lName" Type="String" />
-                <asp:Parameter Name="role" Type="String" />
-                <asp:Parameter Name="occupation" Type="String" />
-                <asp:Parameter Name="phone" Type="String" />
-                <asp:Parameter Name="email" Type="String" />
-                <asp:Parameter Name="address" Type="String" />
-                <asp:Parameter Name="faculty" Type="String" />
-                <asp:Parameter Name="age" Type="Int32" />
-                <asp:Parameter Name="original_userId" Type="Int32" />
-                <asp:Parameter Name="original_fName" Type="String" />
-                <asp:Parameter Name="original_lName" Type="String" />
-                <asp:Parameter Name="original_role" Type="String" />
-                <asp:Parameter Name="original_occupation" Type="String" />
-                <asp:Parameter Name="original_phone" Type="String" />
-                <asp:Parameter Name="original_email" Type="String" />
-                <asp:Parameter Name="original_address" Type="String" />
-                <asp:Parameter Name="original_faculty" Type="String" />
-                <asp:Parameter Name="original_age" Type="Int32" />
-            </UpdateParameters>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CMUTM_DBConnectionString %>" SelectCommand="SELECT * FROM [User]" OldValuesParameterFormatString="original_{0}">
         </asp:SqlDataSource>
     </form>
 </body>

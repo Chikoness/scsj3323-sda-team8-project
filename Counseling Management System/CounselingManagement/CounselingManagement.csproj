@@ -71,18 +71,24 @@
     <Content Include="App_Data\CMUTM_DB_log.ldf">
       <DependentUpon>CMUTM_DB.mdf</DependentUpon>
     </Content>
+    <Content Include="Builder.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Code\BLL\UserAssemblyLine.cs" />
     <Compile Include="App_Code\BLL\User.cs" />
-    <Content Include="App_Code\DAL\DataSet.cs">
-      <DependentUpon>DataSet.xsd</DependentUpon>
-    </Content>
     <Compile Include="App_Code\DAL\DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Builder.aspx.cs">
+      <DependentUpon>Builder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Builder.aspx.designer.cs">
+      <DependentUpon>Builder.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

@@ -132,13 +132,22 @@ namespace CounselingManagement
         protected global::System.Web.UI.WebControls.Button btnAdduser;
 
         /// <summary>
-        /// DropDownListUserId control.
+        /// DropDownListId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownListUserId;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListId;
+
+        /// <summary>
+        /// lblUserId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUserId;
 
         /// <summary>
         /// Table2 control.

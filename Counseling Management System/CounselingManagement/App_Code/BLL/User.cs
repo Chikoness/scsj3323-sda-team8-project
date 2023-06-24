@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-using CounselingManagement.App_Code.DAL.DataSetTableAdapters;
+using CounselingManagement.App_Code.DAL.DataSet1TableAdapters;
 
 namespace CounselingManagement
 {
@@ -19,12 +19,16 @@ namespace CounselingManagement
         private string address;
         private string faculty;
         private int age;
-        private int userId;
+        private string userId;
+
+        private string userType;
+
+        private Dictionary<string, string> userDetails = new Dictionary<string, string>();
 
         public User() { 
         }
 
-        public User(string fn, string ln, string rol, string occ, string p, string em, string add, string fa, int a, int ui)
+        public User(string fn, string ln, string rol, string occ, string p, string em, string add, string fa, int a, string ui)
         {
             this.fName = fn;
             this.lName = ln;
@@ -36,6 +40,16 @@ namespace CounselingManagement
             this.faculty = fa;
             this.age = a;
             this.userId = ui;
+
+            if (rol.Equals("student"))
+            {
+                this.userType = "student";
+            } else if (rol.Equals("staff")) {
+                this.userType = "staff";
+            } else
+            {
+                this.userType = "psychologist";
+            }
         }
 
         ~User() { 
@@ -44,7 +58,7 @@ namespace CounselingManagement
         public void AddUser()
         {
             UserTableAdapter uta = new UserTableAdapter();
-            uta.addUser(userId, fName, lName, occupation, role, phone, email, address, faculty, age);
+            uta.addUser(userId, fName, lName, occupation, role, phone, email, address, faculty, age, (Convert.ToInt32(uta.getLength() + 1)));
         }
 
         public string[] GetUser(int userId)
@@ -71,16 +85,38 @@ namespace CounselingManagement
             return Convert.ToInt32(uta.getUser(userId).Rows[0].ItemArray[9]);
         }
 
-        public void EditUser()
+        public void EditUser(int id)
         {
             UserTableAdapter uta = new UserTableAdapter();
-            uta.editUser(fName, lName, role, occupation, phone, email, address, faculty, age, userId);
+            uta.editUser(fName, lName, role, occupation, phone, email, address, faculty, age, id);
         }
 
-        public void DeleteUser(int userId)
+        public void DeleteUser(int id)
         {
             UserTableAdapter uta = new UserTableAdapter();
-            uta.deleteUser(userId);
+            uta.deleteUser(id);
+        }
+
+        public string this[string key]
+        {
+            get { return userDetails[key]; }
+            set { userDetails[key] = value; }
+        }
+
+        public void BuildUser()
+        {
+            this.fName = userDetails["fName"];
+            this.lName = userDetails["lName"];
+            this.role = userDetails["role"];
+            this.occupation = userDetails["occupation"];
+            this.phone = userDetails["phone"] ;
+            this.email = userDetails["email"]; 
+            this.address = userDetails["address"];
+            this.faculty = userDetails["faculty"];
+            this.age = Convert.ToInt32(userDetails["age"]);
+            this.userId = userDetails["userId"];
+
+            AddUser();
         }
     }
 }
