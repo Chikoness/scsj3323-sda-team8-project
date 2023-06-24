@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Threading;
+using System.Diagnostics;
 
 namespace CounselingManagement
 {
     public interface IObserver
     {
-        void Update(ISubject subject);
+        string Update(ISubject subject);
+        string Display();
+        string DisplayDetached();
     }
 
     public interface ISubject
     {
         void Attach(IObserver observer);
         void Detach(IObserver observer);
-        void Notify();
+        string Notify();
     }
 
     public class Subject : ISubject
@@ -24,56 +27,93 @@ namespace CounselingManagement
         private List<IObserver> _observers = new List<IObserver>();
         public void Attach(IObserver observer)
         {
-            Console.WriteLine("Subject: Attached new advert.");
+            Debug.WriteLine("Subject: Attached an advert");
             this._observers.Add(observer);
         }
 
         public void Detach(IObserver observer)
         {
+            Debug.WriteLine("Subject: Detached an advert");
             this._observers.Remove(observer);
-            Console.WriteLine("Subject: Detached an advert.");
         }
-        public void Notify()
+        public string Notify()
         {
-            Console.WriteLine("Subject: Notifying all advert displayers...");
+            Debug.WriteLine("Subject: Notifying all advert displayers...");
 
             foreach (var observer in _observers)
             {
                 observer.Update(this);
             }
+
+            return "Subject: Notifying all advert displayers...";
         }
 
-        public void AdvertLogic()
+        public string Display()
         {
-            Console.WriteLine("\nSubject: I'm doing something important.");
-            this.State = new Random().Next(0, 10);
+            Debug.WriteLine("Subject: Notifying all advert displayers...");
+            return "Subject: Attached new advert";
+        }
 
-            Thread.Sleep(15);
+        public string DisplayDetached()
+        {
+            return "Subject: Detached an advert";
+        }
 
-            Console.WriteLine("Subject: My state has just changed to: " + this.State);
+        public string AdvertLogic()
+        {
+            Debug.WriteLine("\nSubject: Transferred Advert to Observers.");
+            this.State = new Random().Next(0, 30);
+
+            Thread.Sleep(5);
+
+            Debug.WriteLine("Subject: Advert getting ready to be aired in: " + this.State + " minutes");
             this.Notify();
+
+            return "Subject: Transferred Advert to Observers.";
         }
     }
 
     class SocMedAdObserver : IObserver
     {
-        public void Update(ISubject subject)
+        public string Display()
+        {
+            return "Advert sent to Social Media";
+        }
+        public string DisplayDetached()
+        {
+            return "Advert taken off Social Media";
+        }
+        public string Update(ISubject subject)
         {
             if ((subject as Subject).State < 3)
             {
-                Console.WriteLine("ConcreteObserverA: Reacted to the event.");
+                Debug.WriteLine("SocMedAdObserver: Airing the Advert");
+                return "SocMedAdObserver: Airing the Advert";
             }
+
+            return "";
         }
     }
 
     class NewsletterObserver : IObserver
     {
-        public void Update(ISubject subject)
+        public string Display()
+        {
+            return "Advert sent to Newsletter";
+        }
+        public string DisplayDetached()
+        {
+            return "Advert taken off Newsletter";
+        }
+        public string Update(ISubject subject)
         {
             if ((subject as Subject).State == 0 || (subject as Subject).State >= 2)
             {
-                Console.WriteLine("ConcreteObserverB: Reacted to the event.");
+                Debug.WriteLine("NewsletterObserver: Airing the Advert");
+                return "NewsletterObserver: Airing the Advert";
             }
+
+            return "";
         }
     }
 }

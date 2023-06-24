@@ -42,15 +42,6 @@ namespace CounselingManagement
         protected global::System.Web.UI.WebControls.Button btnRmAdvert1;
 
         /// <summary>
-        /// btnLogicAdvert1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogicAdvert1;
-
-        /// <summary>
         /// lblAdvert control.
         /// </summary>
         /// <remarks>
@@ -58,5 +49,23 @@ namespace CounselingManagement
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblAdvert;
+
+        /// <summary>
+        /// lblAdvert2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAdvert2;
+
+        /// <summary>
+        /// lblAdvert3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAdvert3;
     }
 }

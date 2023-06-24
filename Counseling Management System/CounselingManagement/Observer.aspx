@@ -14,13 +14,15 @@
                     <asp:Button ID="btnAddAdvert1" runat="server" Text="Attach An Advertisement" Width="100%" CssClass="auto-margin" OnClick="btnAddAdvert1_Click" />
                     <br />
                     <asp:Button ID="btnRmAdvert1" runat="server" Text="Detach An Advertisement" Width="100%" CssClass="auto-margin" OnClick="btnRmAdvert1_Click" />
-                    <br />
-                    <asp:Button ID="btnLogicAdvert1" runat="server" Text="Submit Advertisement Details" Width="100%" CssClass="auto-margin" OnClick="btnLogicAdvert1_Click" />
                 </span>
             </div>
             <br />
             <div style="margin: auto; width: 85%; text-align: center;">
-                <asp:Label ID="lblAdvert" runat="server" BorderColor="#3333FF" BorderStyle="Dotted" Font-Bold="True"></asp:Label>
+                <asp:Label ID="lblAdvert" runat="server" Font-Bold="True"></asp:Label>
+                <br />
+                <asp:Label ID="lblAdvert2" runat="server" Font-Bold="True"></asp:Label>
+                <br />
+                <asp:Label ID="lblAdvert3" runat="server" Font-Bold="True"></asp:Label>
             </div>
         </div>
     </form>

@@ -11,7 +11,6 @@ namespace CounselingManagement
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void btnAddAdvert1_Click(object sender, EventArgs e)
@@ -22,15 +21,25 @@ namespace CounselingManagement
 
             subject.Attach(socMed);
             subject.Attach(newsletter);
+
+            subject.AdvertLogic();
+
+            lblAdvert.Text = subject.Display() + ", " + subject.Notify() + " :: " + socMed.Display() + " :: " + socMed.Update(subject);
+            lblAdvert2.Text = subject.Display() + ", " + subject.Notify() + " :: " + newsletter.Display() +" :: " + newsletter.Update(subject); 
+            lblAdvert3.Text = subject.AdvertLogic();
         }
         protected void btnRmAdvert1_Click(object sender, EventArgs e)
         {
+            var subject = new Subject();
+            var socMed = new SocMedAdObserver();
+            var newsletter = new NewsletterObserver();
 
-        }
+            subject.Detach(socMed);
+            subject.Detach(newsletter);
 
-        protected void btnLogicAdvert1_Click(object sender, EventArgs e)
-        {
-
+            lblAdvert.Text = subject.DisplayDetached() + " :: " + socMed.DisplayDetached();
+            lblAdvert2.Text = subject.DisplayDetached() + " :: " + newsletter.DisplayDetached();
+            lblAdvert3.Text = "";
         }
     }
 }
