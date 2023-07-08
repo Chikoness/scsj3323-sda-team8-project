@@ -38,9 +38,13 @@
             <br />
             <asp:Label ID="lblError" runat="server" Font-Size="Large" ForeColor="#CC0000"></asp:Label>
             <br /><br /><br /><br />
-            <asp:Label runat="server" ID="lblText" Font-Size="Larger" Font-Bold="True" Text="Your Result: "></asp:Label>
+            <asp:Label runat="server" ID="lblText" Font-Size="Larger" Font-Bold="True" Text="Your Result" Visible="False" ForeColor="#660066" Font-Underline="True"></asp:Label>
             <br />
-            <asp:Label ID="lblRes" runat="server"></asp:Label>
+            <asp:Label ID="lblRes" runat="server" Font-Size="Large"></asp:Label>
+            <br /><br /><br />
+            <asp:Label ID="lblRes2" runat="server" Font-Size="X-Large" Font-Bold="True"></asp:Label>
+            <br />
+            <asp:Label ID="lblRes3" runat="server" Font-Size="X-Large" Font-Bold="True"></asp:Label>
         </div>
     </form>
 </body>

@@ -18,22 +18,53 @@ namespace CounselingManagement
 
         public string getTestScoreResult()
         {
-            var res = "";
-
-            switch (score)
+            if (score >= 80)
             {
-                case >= 80:
-                    res = "Good";
-                    break;
-                case >= 50:
-                    res = "Average";
-                    break;
-                default:
-                    res = "Bad";
-                    break;
+                return "Good";
+            } else if (score >= 50)
+            {
+                return "Average";
+            } else
+            {
+                return "Bad";
             }
+        }
 
-            return res;
+        public string getCategory()
+        {
+            return this.category;
+        }
+
+        public int displayRescheduleTest()
+        {
+            string testScore = getTestScoreResult();
+            switch (testScore)
+            {
+                case "Good":
+                    return category == "normal" ? 0 : 0;
+                case "Average":
+                    return category == "normal" ? 1 : 1;
+                case "Bad":
+                    return category == "normal" ? 2 : 3;
+                default:
+                    return 0;
+            }
+        }
+
+        public int displayFollowUp()
+        {
+            string testScore = getTestScoreResult();
+            switch (testScore)
+            {
+                case "Good":
+                    return category == "normal" ? 0 : 0;
+                case "Average":
+                    return category == "normal" ? 0 : 1;
+                case "Bad":
+                    return category == "normal" ? 1 : 2;
+                default:
+                    return 0;
+            }
         }
     }
 }

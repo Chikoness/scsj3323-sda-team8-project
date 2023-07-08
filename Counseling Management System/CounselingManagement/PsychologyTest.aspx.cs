@@ -20,7 +20,10 @@ namespace CounselingManagement
             }
 
             Test psyTest = new Test(Convert.ToInt32(txtScore.Text), ddlCat.SelectedValue);
-            lblRes.Text = psyTest.getTestScoreResult();
+            lblText.Visible = true;
+            lblRes.Text = "Your test score is <b>" + psyTest.getTestScoreResult() + "</b>, and your category is <b>" + ddlCat.SelectedItem + "</b>.";
+            lblRes2.Text = "Reschedule Test: " + psyTest.displayRescheduleTest();
+            lblRes3.Text = "Follow-up planned: " + psyTest.displayFollowUp();
         }
     }
 }
