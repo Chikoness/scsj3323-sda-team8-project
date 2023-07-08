@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Threading;
 using System.Diagnostics;
 
@@ -9,21 +8,19 @@ namespace CounselingManagement
 {
     public interface IObserver
     {
+        string getName();
         string Update(ISubject subject);
-        string Display();
-        string DisplayDetached();
     }
 
     public interface ISubject
     {
         void Attach(IObserver observer);
         void Detach(IObserver observer);
-        string Notify();
+        List<IObserver> GetObservers();
     }
 
     public class Subject : ISubject
     {
-        public int State { get; set; } = -0;
         private List<IObserver> _observers = new List<IObserver>();
         public void Attach(IObserver observer)
         {
@@ -36,84 +33,49 @@ namespace CounselingManagement
             Debug.WriteLine("Subject: Detached an advert");
             this._observers.Remove(observer);
         }
-        public string Notify()
+        public List<IObserver> GetObservers()
         {
-            Debug.WriteLine("Subject: Notifying all advert displayers...");
-
             foreach (var observer in _observers)
             {
                 observer.Update(this);
             }
 
-            return "Subject: Notifying all advert displayers...";
+            return _observers;
         }
 
-        public string Display()
+        public string AdvertLogic(IObserver observer)
         {
-            Debug.WriteLine("Subject: Notifying all advert displayers...");
-            return "Subject: Attached new advert";
-        }
-
-        public string DisplayDetached()
-        {
-            return "Subject: Detached an advert";
-        }
-
-        public string AdvertLogic()
-        {
-            Debug.WriteLine("\nSubject: Transferred Advert to Observers.");
-            this.State = new Random().Next(0, 30);
-
-            Thread.Sleep(5);
-
-            Debug.WriteLine("Subject: Advert getting ready to be aired in: " + this.State + " minutes");
-            this.Notify();
-
-            return "Subject: Transferred Advert to Observers.";
+            if (observer.getName() == "Social Media Advertisement")
+            {
+                return "ad-1";
+            } else
+            {
+                return "ad-2";
+            }
         }
     }
 
     class SocMedAdObserver : IObserver
     {
-        public string Display()
+        public string getName()
         {
-            return "Advert sent to Social Media";
-        }
-        public string DisplayDetached()
-        {
-            return "Advert taken off Social Media";
+            return "Social Media Advertisement";
         }
         public string Update(ISubject subject)
         {
-            if ((subject as Subject).State < 3)
-            {
-                Debug.WriteLine("SocMedAdObserver: Airing the Advert");
-                return "SocMedAdObserver: Airing the Advert";
-            }
-
-            return "";
+            return "SocMedAdObserver: Airing the Advert";
         }
     }
 
     class NewsletterObserver : IObserver
     {
-        public string Display()
+        public string getName()
         {
-            return "Advert sent to Newsletter";
-        }
-        public string DisplayDetached()
-        {
-            return "Advert taken off Newsletter";
+            return "Newsletter";
         }
         public string Update(ISubject subject)
         {
-            if ((subject as Subject).State == 0 || (subject as Subject).State >= 2)
-            {
-                Debug.WriteLine("NewsletterObserver: Airing the Advert");
-                return "NewsletterObserver: Airing the Advert";
-            }
-
-            return "";
+             return "NewsletterObserver: Airing the Advert";
         }
     }
 }

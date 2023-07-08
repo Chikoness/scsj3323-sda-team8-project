@@ -11,7 +11,7 @@ namespace CounselingManagement
 {
 
 
-    public partial class Observer
+    public partial class PsychologyTest
     {
 
         /// <summary>
@@ -24,57 +24,84 @@ namespace CounselingManagement
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// btnAddAdvert1 control.
+        /// Table1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddAdvert1;
+        protected global::System.Web.UI.WebControls.Table Table1;
 
         /// <summary>
-        /// btnAddAdvert2 control.
+        /// lblScore control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddAdvert2;
+        protected global::System.Web.UI.WebControls.Label lblScore;
 
         /// <summary>
-        /// btnRmAdvert1 control.
+        /// txtScore control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRmAdvert1;
+        protected global::System.Web.UI.WebControls.TextBox txtScore;
 
         /// <summary>
-        /// lblAdvert control.
+        /// lblCat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAdvert;
+        protected global::System.Web.UI.WebControls.Label lblCat;
 
         /// <summary>
-        /// lblAdvert2 control.
+        /// ddlCat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAdvert2;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCat;
 
         /// <summary>
-        /// img1 control.
+        /// btnSubmit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image img1;
+        protected global::System.Web.UI.WebControls.Button btnSubmit;
+
+        /// <summary>
+        /// lblError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblError;
+
+        /// <summary>
+        /// lblText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblText;
+
+        /// <summary>
+        /// lblRes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRes;
     }
 }
