@@ -13,7 +13,13 @@ namespace CounselingManagement
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(txtScore.Text) < 1 || Convert.ToInt32(txtScore.Text) > 100)
+            lblError.Text = "";
+            lblRes.Text = "";
+            lblRes2.Text = "";
+            lblRes3.Text = "";
+            lblText.Visible = false;
+
+            if (Convert.ToInt32(txtScore.Text) < 0 || Convert.ToInt32(txtScore.Text) > 100)
             {
                 lblError.Text = "Score must be between 0 - 100. Please enter score again";
                 return;
